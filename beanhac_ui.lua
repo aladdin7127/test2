@@ -10,7 +10,7 @@ local library = {
 		backgroundcolour = Color3.fromRGB(12,12,12),
 		outlinecolour = Color3.fromRGB(51,51,51),
 
-		accentcolour = Color3.fromRGB(170,85,235),
+		accentcolour = ... or Color3.fromRGB(170,85,235),
 
 		otherfontcolour = Color3.fromRGB(140,140,140),
 		objectcolour = Color3.fromRGB(120,120,120),
