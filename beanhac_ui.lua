@@ -1,3 +1,4 @@
+-- 07/04/24 |  DD/MM/YY
 local library = {
 	style = {
 		window = {
@@ -91,10 +92,6 @@ end
 function library:getdarkercolour(colour, amount)
 	local h, s, v = colour:ToHSV()
 	return Color3.fromHSV(h, s, v / (amount or 1.5))
-end
-
-function library:updateaccent(colour)
-	library.events.updateaccent:Fire(colour)
 end
 
 function library:highlight(h_instance, instance, properties, d_properties, ignore)
@@ -472,7 +469,8 @@ do
 					library.opened[frame] = nil
 				end
 			end
-			
+
+			pickerouter.Position = UDim2.fromOffset(displayinner.AbsolutePosition.X, displayinner.AbsolutePosition.Y + 18)
 			pickerouter.Visible = true
 			library.opened[pickerouter] = true
 		end
@@ -715,6 +713,7 @@ do
 					c:Disconnect()
 				end)
 			elseif input.UserInputType == Enum.UserInputType.MouseButton2 and not library:isoveropened() then
+                modeouter.Position = UDim2.fromOffset(mainlabel.AbsolutePosition.X + mainlabel.AbsoluteSize.X + 4, mainlabel.AbsolutePosition.Y + 1)
 				modeouter.Visible = not modeouter.Visible
 			end
 		end)
@@ -1601,6 +1600,15 @@ function library:createwindow(options)
 	table.insert(library.connections, userinputservice.InputBegan:Connect(function(input)
 		if input.KeyCode == library.togglebind then
 			outer.Visible = not outer.Visible
+
+            if outer.Visible == false then
+                for _, frame in gui:GetChildren() do
+                    if frame.Name == "colourpicker" or frame.Name == "keypicker" then
+                        frame.Visible = false
+                        library.opened[frame] = nil
+                    end
+                end
+            end
 		end
 	end))
 
