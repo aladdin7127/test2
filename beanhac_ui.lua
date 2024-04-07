@@ -49,6 +49,7 @@ local contentprovider = game:GetService("ContentProvider")
 
 local defaultcallback = function() end
 local gui = Instance.new("ScreenGui")
+gui.Name = "beanhac_ui"
 
 if runservice:IsStudio() then
 	gui.Parent = game:GetService("Players").LocalPlayer.PlayerGui
@@ -191,7 +192,7 @@ table.insert(library.connections, runservice.RenderStepped:Connect(function(delt
 		fps_timer = tick()
 	end
 
-	--library.ping = math.floor(stats.Network.ServerStatsItem["Data Ping"]:GetValue())
+	library.ping = math.floor(stats.Network.ServerStatsItem["Data Ping"]:GetValue())
 end))
 
 function library:makedraggable(instance, height)
