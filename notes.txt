@@ -3,6 +3,6 @@
 "SummonTower" {1: "Purple Guy", CFrame}
 "Upgrade": {1: workspace.Towers["Purple Guy"]}
 "Settings": {1: "AutoSkip"}
-"Sell": {1: TowerToSell}
+"Sell": {1: nilinstance}
 
 Remotes -> ReplicatedStorage.Remotes
