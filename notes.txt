@@ -1,0 +1,8 @@
+"Vote" {1: "99", 2: 4, 3: 1}
+"Modifiers": {1: "PiratesCoves"}
+"SummonTower" {1: "Purple Guy", CFrame}
+"Upgrade": {1: workspace.Towers["Purple Guy"]}
+"Settings": {1: "AutoSkip"}
+"Sell": {1: TowerToSell}
+
+Remotes -> ReplicatedStorage.Remotes
